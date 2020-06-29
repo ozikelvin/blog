@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet"  type="text/css" href="/app.css">
+</head>
+<body>
+    <div class="ui fixed inverted  menu ">
+        <a href="/blog" class="active item" ><i class="code icon"></i>
+          Blog
+        </a>
+        <a href="/blog/new" class="item">
+          New Post
+        </a>
+        <a href="/blog" class="item">
+          Home
+        </a>
+
+        <div class="right menu">
+          <form action="/clean" method="POST">
+          <div class="item">
+            <div class="ui icon input">
+              <input type="text" placeholder="Search..." name="clean">
+                <i class="search link icon"></i>
+            </div>
+          </div>
+        </form>
+          <a class="ui item">
+            Logout
+          </a>
+        </div>
+      </div>
+                        <div class="div">
+                          <marquee behavior="scroll" direction="left"><h2>Welcome to the Blog post test</h2></marquee>
+                          <div class="ui main text container">
+                            <div class="ui huge header">
+                              Blog App
+                            </div>
+                            <div class="ui top attached segment">
+                              <div class="ui divided items">
+                                  <% blog.forEach((blogs)=>{ %>
+                                    <div class="ui item">
+                                      <div class="image">
+                                        <img src="<%= blogs.image %>" alt="">
+                                      </div>
+                                      <div class="content">
+                                        <a class="header" href="/blog/<%=blogs._id %>"><%= blogs.title %></a>
+                                        <div class="meta">
+                                          <span><%= blogs.date.toDateString() %></span>
+                                        </div>
+                                        <div class="description">
+                                          <h3><%- blogs.body.substring(0, 60) %>......</h3>
+                                        </div>
+                                        <div class="extra">
+                                          <a class="ui floated basic violet button" href="/blog/<%=blogs._id %>">Read more
+                                            <i class="right chevron icon"></i>
+                                          </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                             <% }); %>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </div>
+
+
+
+</body>
+</html>

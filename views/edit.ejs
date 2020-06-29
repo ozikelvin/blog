@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet"  type="text/css" href="/app.css">
+</head>
+<body>
+    <div class="ui fixed inverted menu">
+        <a href="/blog" class="item">   <i class="code icon"></i>
+            Blog
+        </a>
+        <a href="/blog/new" class="item">New post</a>
+        <a href="/blog" class="item">Home</a>
+        <div class="right menu">
+            <div class="item">
+              <div class="ui icon input">
+                <input type="text" placeholder="Search...">
+                <i class="search link icon"></i>
+              </div>
+            </div>
+            </div>
+    </div>
+
+    <div class="ui main text container segment">
+        <div class="ui huge header">
+            <%= blog.title %>
+        </div>
+       <form action="/blog/<%= blog._id %>?_method=PUT" method="POST" class="ui form">
+        <div class="field" >
+            <label for="Title">Title</label>
+            <input type="text" value="<%=blog.title %>" name="blog[title]">
+        </div>
+        <div class="field">
+            <label for="Image">Image</label>
+            <input type="text"  value="<%= blog.image %>" name="blog[image]">
+        </div>
+        <div class="field">
+            <label for="Text"> Blog Content</label>
+            <textarea name="blog[body]" id="" cols="30" rows="10"><%- blog.body %></textarea>
+        </div>
+        <input type="submit" class="ui violet basic button">
+
+    </form>
+    </div>
+
+
+</body>
+</html>

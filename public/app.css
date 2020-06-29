@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+i.icon {
+    font-size: 2em;
+}
+body{
+background-color: rgb(95, 80, 83);
+}
+h2{
+    font-size:3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: tomato;
+    font-style: oblique;
+}
+ .container.main{
+
+    margin-top: 8rem;
+
+}
+.div{
+    margin-top: 5rem;
+}
+#delete{
+    display: inline;
+}
+
